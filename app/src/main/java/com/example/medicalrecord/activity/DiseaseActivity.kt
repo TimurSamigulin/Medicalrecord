@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
@@ -31,6 +32,12 @@ class DiseaseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         viewpager_disease.adapter = fragmentAdapter
 
         tabs_disease.setupWithViewPager(viewpager_disease)
+
+        val fab: View = findViewById(R.id.fab)
+        fab.setOnClickListener { view ->
+            TODO("Add fab listener")
+        }
+
 
     }
 
