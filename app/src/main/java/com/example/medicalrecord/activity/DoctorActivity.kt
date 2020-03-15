@@ -7,8 +7,10 @@ import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import com.example.medicalrecord.R
+import com.example.medicalrecord.fragmentadapter.DoctorFragmentAdapter
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_doctor.*
+import kotlinx.android.synthetic.main.tab_disease.*
 import kotlinx.android.synthetic.main.toolbar.*
 
 class DoctorActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -24,6 +26,11 @@ class DoctorActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
         doctor_drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
         doctor_nav_view.setNavigationItemSelectedListener(this)
+
+        val fragmentAdapter = DoctorFragmentAdapter(supportFragmentManager)
+        viewpager_disease.adapter = fragmentAdapter
+
+        tabs_disease.setupWithViewPager(viewpager_disease)
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
