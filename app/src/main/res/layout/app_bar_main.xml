@@ -14,4 +14,7 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <include
+        layout="@layout/tab_disease"/>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

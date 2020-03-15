@@ -8,8 +8,10 @@ import android.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import com.example.medicalrecord.R
+import com.example.medicalrecord.fragmentadapter.DiseaseFragmentAdapter
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.tab_disease.*
 import kotlinx.android.synthetic.main.toolbar.*
 
 class DiseaseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -24,6 +26,11 @@ class DiseaseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         disease_drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
         disease_nav_view.setNavigationItemSelectedListener(this)
+
+        val fragmentAdapter = DiseaseFragmentAdapter(supportFragmentManager)
+        viewpager_disease.adapter = fragmentAdapter
+
+        tabs_disease.setupWithViewPager(viewpager_disease)
 
     }
 
