@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Medical record</string>
+    <string name="disease">История болезней</string>
+    <string name="doctor">Посещение врачей</string>
+    <string name="drug">Прием лекарств</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+</resources>
