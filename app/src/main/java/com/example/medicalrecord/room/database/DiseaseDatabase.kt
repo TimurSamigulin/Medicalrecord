@@ -15,7 +15,6 @@ import kotlinx.coroutines.CoroutineScope
 abstract class DiseaseDatabase: RoomDatabase() {
     abstract fun DAODisease(): DAODisease
 
-
     companion object {
         @Volatile
         private var INSTANCE: DiseaseDatabase? = null
