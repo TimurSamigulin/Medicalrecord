@@ -22,7 +22,6 @@ abstract class DiseaseDatabase: RoomDatabase() {
     abstract fun daoDoctor(): DAODoctor
     abstract fun daoMedicine(): DAOMedicine
 
-
     companion object {
         @Volatile
         private var INSTANCE: DiseaseDatabase? = null

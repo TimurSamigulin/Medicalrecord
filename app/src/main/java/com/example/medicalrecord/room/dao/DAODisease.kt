@@ -18,6 +18,9 @@ interface DAODisease {
     @Delete
     suspend fun deleteDisease(disease: Disease)
 
+    @Query("SELECT * FROM Disease")
+    fun getAllDisease(): LiveData<List<Disease>>
+
     @Query("SELECT * FROM Disease WHERE dateEnd = null")
     fun getCurrentDisease(): LiveData<List<Disease>>
 

@@ -7,8 +7,13 @@ import android.view.MenuItem
 import android.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
+import androidx.lifecycle.ViewModelProvider
 import com.example.medicalrecord.R
+import com.example.medicalrecord.adapter.DiseaseAdapter
+import com.example.medicalrecord.adapter.impl.OnDiseaseAdapterBtnClickListener
 import com.example.medicalrecord.fragmentadapter.DiseaseFragmentAdapter
+import com.example.medicalrecord.room.model.Disease
+import com.example.medicalrecord.viewmodel.DiseaseViewModel
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.tab_disease.*
@@ -48,4 +53,5 @@ class DiseaseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         disease_drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }
+
 }
