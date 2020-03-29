@@ -27,10 +27,10 @@ class DiseaseCurrentFragment : Fragment(), OnDiseaseAdapterBtnClickListener {
     //Удалить потом
     @Suppress("DEPRECATION")
     private val dis = listOf(
-        Disease(null, "Salam5", "Aleickum1", Date(1998, 3, 11), null, "qwerty"),
-        Disease(null, "Salam6", "Aleickum2", Date(1998, 3, 12), null, "qwerty"),
-        Disease(null, "Salam7", "Aleickum3", Date(1998, 3, 13), null, "qwerty"),
-        Disease(null, "Salam8", "Aleickum4", Date(1998, 3, 14), Date(2020, 1, 14), "qwerty")
+        Disease(null, "q", "Aleickum1", 0, Calendar.getInstance().timeInMillis - 1000, "qwerty"),
+        Disease(null, "w", "Aleickum2", Date(1998, 3, 12).time, Calendar.getInstance().timeInMillis - 1000, "qwerty"),
+        Disease(null, "e", "Aleickum3", Date(1998, 3, 13).time, Calendar.getInstance().timeInMillis - 1000, "qwerty"),
+        Disease(null, "r", "Aleickum4", Date(1998, 3, 14).time, Calendar.getInstance().timeInMillis - 1000, "qwerty")
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,6 +56,7 @@ class DiseaseCurrentFragment : Fragment(), OnDiseaseAdapterBtnClickListener {
             adapter = DiseaseAdapter(this@DiseaseCurrentFragment)
             model.currentDisease.observe(viewLifecycleOwner, Observer {
                 diseases -> diseases?.let { (adapter as DiseaseAdapter).setItems(it) }
+                Log.d("123", diseases.size.toString())
             })
         }
     }
