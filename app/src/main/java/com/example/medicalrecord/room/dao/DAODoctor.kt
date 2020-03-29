@@ -22,7 +22,7 @@ interface DAODoctor {
     @Query("SELECT * FROM Doctor")
     fun getAllDoctors(): LiveData<List<Doctor>>
 
-    @Query("SELECT * FROM Doctor WHERE visit_date >= :curDate")
+    @Query("SELECT * FROM Doctor WHERE visit_date >= :curDate or visit_date = null")
     fun getCurrentDoctors(curDate: Long): LiveData<List<Doctor>>
 
     @Query("SELECT * FROM Doctor WHERE visit_date < :curDate")

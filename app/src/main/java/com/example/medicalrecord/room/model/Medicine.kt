@@ -16,12 +16,12 @@ class Medicine constructor(@PrimaryKey(autoGenerate = true) var id: Long?,
                            var diseaseId: Long?,
                            var title: String,
                            @ColumnInfo(name = "date_begin")
-                           var dateBegin: Date,
+                           var dateBegin: Long,
                            @ColumnInfo(name = "date_end")
-                           var dateEnd: Date?,
+                           var dateEnd: Long?,
                            var day: Int,
                            var dose: Int,
                            var unit: String,
                            var info: String) {
-    constructor():this(null, null,"", Date(), null, 0, 0, UnitMedicine.PIECES.toString(), "")
+    constructor():this(null, null,"", Calendar.getInstance().timeInMillis, null, 0, 0, UnitMedicine.PIECES.toString(), "")
 }

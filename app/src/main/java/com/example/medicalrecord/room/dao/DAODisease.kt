@@ -21,7 +21,7 @@ interface DAODisease {
     @Query("SELECT * FROM Disease")
     fun getAllDisease(): LiveData<List<Disease>>
 
-    @Query("SELECT * FROM Disease WHERE dateEnd = 0 OR dateEnd >= :time")
+    @Query("SELECT * FROM Disease WHERE dateEnd = 0 OR dateEnd >= :time OR dateEnd = null")
     fun getCurrentDisease(time: Long): LiveData<List<Disease>>
 
     @Query("SELECT * FROM Disease WHERE dateEnd != 0 and dateEnd <= :time")

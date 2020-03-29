@@ -17,8 +17,8 @@ class Doctor constructor(@PrimaryKey(autoGenerate = true) var id: Long?,
                          var cause: String,
                          var hospital: String,
                          @ColumnInfo(name = "visit_date")
-                         var visitDate: Date?,
+                         var visitDate: Long,
                          var result: String,
                          var recipe: String) {
-    constructor():this(null, null, "", "", "", Date(), "", "")
+    constructor():this(null, null, "", "", "", Calendar.getInstance().timeInMillis, "", "")
 }

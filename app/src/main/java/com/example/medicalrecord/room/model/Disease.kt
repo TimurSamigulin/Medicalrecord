@@ -9,7 +9,7 @@ class Disease constructor(@PrimaryKey(autoGenerate = true) var id: Long?,
                           var title: String,
                           var symptoms: String,
                           var dateBegin: Long,
-                          var dateEnd: Long,
+                          var dateEnd: Long?,
                           var info: String?) {
-    constructor():this(null, "", "", Calendar.getInstance().timeInMillis, 0, "")
+    constructor():this(null, "", "", Calendar.getInstance().timeInMillis, null, "")
 }
