@@ -8,8 +8,8 @@ import java.util.*
 class Disease constructor(@PrimaryKey(autoGenerate = true) var id: Long?,
                           var title: String,
                           var symptoms: String,
-                          var dateBegin: Date?,
-                          var dateEnd: Date?,
+                          var dateBegin: Long,
+                          var dateEnd: Long,
                           var info: String?) {
-    constructor():this(null, "", "", null, null, "")
+    constructor():this(null, "", "", Calendar.getInstance().timeInMillis, 0, "")
 }

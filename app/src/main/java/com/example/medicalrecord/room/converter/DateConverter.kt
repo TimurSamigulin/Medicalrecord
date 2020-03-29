@@ -11,6 +11,6 @@ class DateConverter {
 
     @TypeConverter
     fun dateToTimestamp(date: Date?): Long? {
-        return date?.time
+        return if (date == null) null else date?.time
     }
 }

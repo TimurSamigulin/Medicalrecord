@@ -10,8 +10,8 @@ import kotlinx.coroutines.launch
 import java.util.*
 
 class DiseaseRepository(private val DAODisease: DAODisease) {
-    val currentDisease: LiveData<List<Disease>> = DAODisease.getCurrentDisease()
-    val oldDisease: LiveData<List<Disease>> = DAODisease.getOldDisease()
+    val currentDisease: LiveData<List<Disease>> = DAODisease.getCurrentDisease(Calendar.getInstance().timeInMillis)
+    val oldDisease: LiveData<List<Disease>> = DAODisease.getOldDisease(Calendar.getInstance().timeInMillis)
     val allDisease: LiveData<List<Disease>> = DAODisease.getAllDisease()
 
     @WorkerThread
@@ -27,5 +27,5 @@ class DiseaseRepository(private val DAODisease: DAODisease) {
     @WorkerThread
     suspend fun updateDisease(disease: Disease) {
         DAODisease.updateDisease(disease)
-    }
+}
 }
