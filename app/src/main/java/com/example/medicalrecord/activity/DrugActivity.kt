@@ -8,8 +8,10 @@ import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import com.example.medicalrecord.R
+import com.example.medicalrecord.fragmentadapter.DrugFragmentAdapter
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_drug.*
+import kotlinx.android.synthetic.main.tab_disease.*
 import kotlinx.android.synthetic.main.toolbar.*
 
 class DrugActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -29,6 +31,12 @@ class DrugActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         fab.setOnClickListener { view ->
             TODO("Add fab listener")
         }
+      
+        val fragmentAdapter = DrugFragmentAdapter(supportFragmentManager)
+        viewpager_disease.adapter = fragmentAdapter
+
+        tabs_disease.setupWithViewPager(viewpager_disease)
+      
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
