@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.medicalrecord.R
 import com.example.medicalrecord.adapter.impl.OnDiseaseAdapterBtnClickListener
 import com.example.medicalrecord.room.model.Disease
+import java.text.SimpleDateFormat
+import java.util.*
 
 class DiseaseAdapter(val listener: OnDiseaseAdapterBtnClickListener): RecyclerView.Adapter<DiseaseAdapter.DiseaseHolder>() {
     private var diseases: List<Disease> = listOf()
@@ -41,7 +43,12 @@ class DiseaseAdapter(val listener: OnDiseaseAdapterBtnClickListener): RecyclerVi
     override fun onBindViewHolder(holder: DiseaseHolder, position: Int) {
         val currentDisease: Disease = diseases[position]
         holder.textTitle.text = currentDisease.title
-        holder.textBegin.text = currentDisease.dateBegin.toString()
+
+        val calendar = Calendar.getInstance()
+        calendar.timeInMillis = currentDisease.dateBegin
+        val formatter = SimpleDateFormat("dd/MM/yyyy")
+        holder.textBegin.text = formatter.format(calendar.time).toString()
+
         holder.bindView(currentDisease, listener)
     }
 }

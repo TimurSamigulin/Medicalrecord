@@ -35,7 +35,7 @@ class DiseaseCurrentFragment : Fragment(), OnDiseaseAdapterBtnClickListener {
         retainInstance = true
 
         model = ViewModelProvider(this).get(DiseaseViewModel::class.java)
-        model.insertDisease(dis)
+        model.insertDiseases(dis)
     }
 
     override fun onCreateView(

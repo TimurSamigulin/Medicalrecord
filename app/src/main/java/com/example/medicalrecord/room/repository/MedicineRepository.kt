@@ -7,8 +7,8 @@ import com.example.medicalrecord.room.model.Medicine
 import java.util.*
 
 class MedicineRepository(private val daoMedicine: DAOMedicine) {
-    val currentMedicine: LiveData<List<Medicine>> = daoMedicine.getCurrentMedicine(Date().time)
-    val oldMedicine: LiveData<List<Medicine>> = daoMedicine.getOldMedicine(Date().time)
+    val currentMedicine: LiveData<List<Medicine>> = daoMedicine.getCurrentMedicine(Calendar.getInstance().timeInMillis)
+    val oldMedicine: LiveData<List<Medicine>> = daoMedicine.getOldMedicine(Calendar.getInstance().timeInMillis)
     val allMedicine: LiveData<List<Medicine>> = daoMedicine.getAllMedicine()
 
     @WorkerThread

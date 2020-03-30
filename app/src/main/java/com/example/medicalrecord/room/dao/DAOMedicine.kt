@@ -21,7 +21,7 @@ interface DAOMedicine {
     @Query("SELECT * FROM Medicine")
     fun getAllMedicine(): LiveData<List<Medicine>>
 
-    @Query("SELECT * FROM Medicine WHERE date_end >= :curDate or date_end = null")
+    @Query("SELECT * FROM Medicine WHERE (date_end >= :curDate OR date_end = null)")
     fun getCurrentMedicine(curDate: Long): LiveData<List<Medicine>>
 
     @Query("SELECT * FROM Medicine WHERE date_end < :curDate")

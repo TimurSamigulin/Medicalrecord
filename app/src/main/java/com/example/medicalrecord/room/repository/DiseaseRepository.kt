@@ -27,5 +27,10 @@ class DiseaseRepository(private val DAODisease: DAODisease) {
     @WorkerThread
     suspend fun updateDisease(disease: Disease) {
         DAODisease.updateDisease(disease)
-}
+    }
+
+    @WorkerThread
+    suspend fun deleteDisease(disease: Disease) {
+        DAODisease.deleteDisease(disease)
+    }
 }

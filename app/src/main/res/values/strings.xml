@@ -14,4 +14,5 @@
     <string name="hospital">Болница</string>
     <string name="visit_date">Время приема</string>
     <string name="doctor_title">Врач</string>
+    <string name="dose">Доза</string>
 </resources>

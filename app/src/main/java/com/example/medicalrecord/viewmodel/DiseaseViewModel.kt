@@ -28,9 +28,27 @@ class DiseaseViewModel(application: Application): AndroidViewModel(application) 
         allDisease = repository.allDisease
     }
 
-    fun insertDisease(diseases: List<Disease>) {
+    fun insertDiseases(diseases: List<Disease>) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.insertDiseases(diseases)
+        }
+    }
+
+    fun insertDisease(diseases: Disease) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.insertDisease(diseases)
+        }
+    }
+
+    fun updateDisease(diseases: Disease) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.updateDisease(diseases)
+        }
+    }
+
+    fun deleteDisease(diseases: Disease) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteDisease(diseases)
         }
     }
 
