@@ -9,8 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.DrugActivity"></activity>
-        <activity android:name=".activity.DoctorActivity"></activity>
+        <activity android:name=".activity.AddDrugActivity"></activity>
+        <activity android:name=".activity.AddDoctorActivity" />
+        <activity android:name=".activity.AddDiseaseActivity" />
+        <activity android:name=".activity.DrugActivity" />
+        <activity android:name=".activity.DoctorActivity" />
         <activity android:name=".activity.DiseaseActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import com.example.medicalrecord.R
@@ -26,10 +27,16 @@ class DrugActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
         drug_nav_view.setNavigationItemSelectedListener(this)
 
+        val fab: View = findViewById(R.id.fab)
+        fab.setOnClickListener { view ->
+            TODO("Add fab listener")
+        }
+      
         val fragmentAdapter = DrugFragmentAdapter(supportFragmentManager)
         viewpager_disease.adapter = fragmentAdapter
 
         tabs_disease.setupWithViewPager(viewpager_disease)
+      
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
