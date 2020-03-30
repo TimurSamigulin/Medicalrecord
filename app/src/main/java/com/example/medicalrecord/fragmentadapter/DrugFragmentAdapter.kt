@@ -24,8 +24,8 @@ class DrugFragmentAdapter(fm: FragmentManager): FragmentPagerAdapter(fm, Fragmen
 
     override fun getPageTitle(position: Int): CharSequence? {
         return when(position) {
-            0 -> "Записи к врачам"
-            else -> "Архив походов к врачу"
+            0 -> "Прием лекастрв"
+            else -> "Архив лекарств"
         }
     }
 }
