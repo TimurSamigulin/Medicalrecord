@@ -71,8 +71,8 @@ class AddDiseaseActivity : AppCompatActivity() {
         data.putExtra(AddDiseaseActivity.EXTRA_INFO, info)
         data.putExtra(AddDiseaseActivity.EXTRA_DATEBEGIN, dateBegin)
         //data.putExtra(AddDiseaseActivity.EXTRA_DATEEND, dateEnd)
-        setResult(Activity.RESULT_OK, data)
 
+        setResult(Activity.RESULT_OK, data)
         finish()
     }
 
