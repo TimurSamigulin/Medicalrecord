@@ -35,7 +35,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/edt_doctor_title"
+            android:id="@+id/edt_medicine_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -54,7 +54,7 @@
             android:layout_marginTop="8dp"
             android:text="Больница"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_doctor_title" />
+            app:layout_constraintTop_toBottomOf="@+id/edt_medicine_title" />
 
         <EditText
             android:id="@+id/edt_doctor_hospital"

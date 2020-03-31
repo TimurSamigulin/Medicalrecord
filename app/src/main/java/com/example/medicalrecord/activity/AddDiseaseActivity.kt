@@ -97,7 +97,7 @@ class AddDiseaseActivity : AppCompatActivity() {
                         beginDate.get(Calendar.DAY_OF_MONTH)).show()
     }
 
-    val onBeginDateListener = DatePickerDialog.OnDateSetListener{
+    private val onBeginDateListener = DatePickerDialog.OnDateSetListener{
         view, year, month, day ->
         beginDate.set(Calendar.YEAR, year)
         beginDate.set(Calendar.MONTH, month)

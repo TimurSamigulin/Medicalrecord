@@ -47,7 +47,7 @@ class DiseaseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
 
         val fab: View = findViewById(R.id.fab)
         fab.setOnClickListener { view ->
-            intent = Intent(this, AddDiseaseActivity::class.java)
+            val intent = Intent(this, AddDiseaseActivity::class.java)
             startActivityForResult(intent, ADD_DISEASE_REQUEST)
         }
     }

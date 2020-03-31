@@ -5,6 +5,8 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
@@ -42,7 +44,7 @@ class AddDoctorActivity : AppCompatActivity() {
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_close)
         setTitle("Визит к доктору")
 
-        editTitle = findViewById(R.id.edt_doctor_title)
+        editTitle = findViewById(R.id.edt_medicine_title)
         editHospital = findViewById(R.id.edt_doctor_hospital)
         editCause = findViewById(R.id.edt_doctor_cause)
         editRecipe = findViewById(R.id.edt_doctor_recipe)
@@ -51,6 +53,7 @@ class AddDoctorActivity : AppCompatActivity() {
 
         val simpleDateFormat = SimpleDateFormat("dd.MM.yyyy", Locale.US)
         txtVisitDate.text = simpleDateFormat.format(visitDate.time).toString()
+
     }
 
     private fun saveDoctor() {
@@ -76,6 +79,20 @@ class AddDoctorActivity : AppCompatActivity() {
 
         setResult(Activity.RESULT_OK, data)
         finish()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.add_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId){
+            R.id.save -> {saveDoctor()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     fun setVisitDate(view: View) {
