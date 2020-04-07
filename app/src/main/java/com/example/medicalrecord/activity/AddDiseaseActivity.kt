@@ -24,7 +24,7 @@ class AddDiseaseActivity : AppCompatActivity() {
         val EXTRA_SYMPTOMS = "adddiseaseactivity.SYMPTOMS"
         val EXTRA_INFO = "adddiseaseactivity.INFO"
         val EXTRA_DATEBEGIN = "adddiseaseactivity.DATEBEGIN"
-        val EXTRA_DATEEND = "adddiseaseactivity.DATEEND"
+        const val EXTRA_DATEEND = "adddiseaseactivity.DATEEND"
     }
 
     private lateinit var editTitle: EditText
