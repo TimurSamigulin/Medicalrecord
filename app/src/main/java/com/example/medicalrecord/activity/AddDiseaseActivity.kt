@@ -27,6 +27,8 @@ class AddDiseaseActivity : AppCompatActivity() {
         val EXTRA_INFO = "adddiseaseactivity.INFO"
         @JvmStatic
         val EXTRA_DATE_BEGIN = "adddiseaseactivity.DATEBEGIN"
+        @JvmStatic
+        val EXTRA_COURSE = "adddiseaseactivity.COURSE"
         const val EXTRA_DATE_END = "adddiseaseactivity.DATEEND"
     }
 
@@ -35,6 +37,7 @@ class AddDiseaseActivity : AppCompatActivity() {
     private lateinit var txtBeginDate: TextView
     //private lateinit var txtEndDate: TextView
     private lateinit var editInfo: EditText
+    private lateinit var editCouse: EditText
 
     private var beginDate: Calendar = Calendar.getInstance()
     //var endDate: Calendar = Calendar.getInstance()
@@ -51,6 +54,7 @@ class AddDiseaseActivity : AppCompatActivity() {
         txtBeginDate = findViewById(R.id.txt_disease_begin_date)
         //txtEndDate = findViewById<TextView>(R.id.txt_disease_end_date)
         editInfo = findViewById(R.id.edt_disease_info)
+        editCouse = findViewById(R.id.edt_disease_course)
 
         val simpleDateFormat = SimpleDateFormat("dd.MM.yyyy", Locale.US)
         txtBeginDate.text = simpleDateFormat.format(beginDate.time).toString()
@@ -62,6 +66,7 @@ class AddDiseaseActivity : AppCompatActivity() {
         val info = editInfo.text.toString()
         val symptoms = editSymptoms.text.toString()
         val dateBegin = beginDate.timeInMillis
+        val course = editCouse.text.toString()
         //val dateEnd = endDate.timeInMillis
         if (title.trim().isEmpty()) {
             Toast.makeText(this, "Заполните название болезни", Toast.LENGTH_LONG).show()
@@ -73,6 +78,7 @@ class AddDiseaseActivity : AppCompatActivity() {
         data.putExtra(EXTRA_SYMPTOMS, symptoms)
         data.putExtra(EXTRA_INFO, info)
         data.putExtra(EXTRA_DATE_BEGIN, dateBegin)
+        data.putExtra(EXTRA_COURSE, course)
         //data.putExtra(AddDiseaseActivity.EXTRA_DATEEND, dateEnd)
 
         setResult(Activity.RESULT_OK, data)

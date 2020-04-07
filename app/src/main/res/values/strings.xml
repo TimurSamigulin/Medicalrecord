@@ -31,4 +31,5 @@
     <string name="symptoms">Симптомы</string>
     <string name="date_begin_disease">Дата начала болезни</string>
     <string name="_11_03_2020">11.03.2020</string>
+    <string name="course">Ход болезни</string>
 </resources>

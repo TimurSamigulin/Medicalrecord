@@ -26,7 +26,7 @@ class DiseaseCurrentFragment : Fragment(), OnDiseaseAdapterBtnClickListener {
     //Удалить потом
     @Suppress("DEPRECATION")
     private val dis = listOf(
-        Disease(null, "q", "Aleickum1", 0, Calendar.getInstance().timeInMillis - 1000, "qwerty")
+        Disease(null, "q", "Aleickum1", 0, Calendar.getInstance().timeInMillis - 1000, "qwerty", "dsads")
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
