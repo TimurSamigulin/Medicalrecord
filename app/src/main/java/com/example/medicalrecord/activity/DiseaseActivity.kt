@@ -7,13 +7,10 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
-import android.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.lifecycle.ViewModelProvider
 import com.example.medicalrecord.R
-import com.example.medicalrecord.adapter.DiseaseAdapter
-import com.example.medicalrecord.adapter.impl.OnDiseaseAdapterBtnClickListener
 import com.example.medicalrecord.fragmentadapter.DiseaseFragmentAdapter
 import com.example.medicalrecord.room.model.Disease
 import com.example.medicalrecord.viewmodel.DiseaseViewModel
@@ -46,7 +43,7 @@ class DiseaseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         tabs_disease.setupWithViewPager(viewpager_disease)
 
         val fab: View = findViewById(R.id.fab)
-        fab.setOnClickListener { view ->
+        fab.setOnClickListener {
             val intent = Intent(this, AddDiseaseActivity::class.java)
             startActivityForResult(intent, ADD_DISEASE_REQUEST)
         }
@@ -55,11 +52,11 @@ class DiseaseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.nav_menu_doctor -> {
-                val intent: Intent = Intent(this, DoctorActivity::class.java)
+                val intent = Intent(this, DoctorActivity::class.java)
                 startActivity(intent)
             }
             R.id.nav_menu_drug -> {
-                val intent: Intent = Intent(this, DrugActivity::class.java)
+                val intent = Intent(this, DrugActivity::class.java)
                 startActivity(intent)
             }
         }
@@ -73,10 +70,10 @@ class DiseaseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
             val title = data?.getStringExtra(AddDiseaseActivity.EXTRA_TITLE) ?: ""
             val symptoms = data?.getStringExtra(AddDiseaseActivity.EXTRA_SYMPTOMS) ?: ""
             val info = data?.getStringExtra(AddDiseaseActivity.EXTRA_INFO) ?: ""
-            val dateBegin = data?.getLongExtra(AddDiseaseActivity.EXTRA_DATEBEGIN, Calendar.getInstance().timeInMillis) ?: Calendar.getInstance().timeInMillis
+            val dateBegin = data?.getLongExtra(AddDiseaseActivity.EXTRA_DATE_BEGIN, Calendar.getInstance().timeInMillis) ?: Calendar.getInstance().timeInMillis
             //val dateEnd = data?.getLongExtra(AddDiseaseActivity.EXTRA_DATEEND, 0)
 
-            val disease: Disease = Disease(null, title, symptoms, dateBegin, null, info)
+            val disease = Disease(null, title, symptoms, dateBegin, null, info)
             model.insertDisease(disease)
 
             Toast.makeText(this, "Добавлена болезнь", Toast.LENGTH_SHORT).show()

@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="Доктор"
+            android:text="@string/doctor_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,10 +41,11 @@
             android:layout_marginStart="8dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+            app:layout_constraintTop_toBottomOf="@+id/textView10"
+            android:autofillHints="@string/doctor_title"
+            tools:ignore="LabelFor" />
 
         <TextView
             android:id="@+id/textView12"
@@ -52,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="Больница"
+            android:text="@string/hospital"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edt_medicine_title" />
 
@@ -63,10 +64,11 @@
             android:layout_marginStart="8dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView12" />
+            app:layout_constraintTop_toBottomOf="@+id/textView12"
+            android:autofillHints="@string/hospital"
+            tools:ignore="LabelFor" />
 
         <TextView
             android:id="@+id/textView13"
@@ -74,7 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="Причина"
+            android:text="@string/cause"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edt_doctor_hospital" />
 
@@ -86,10 +88,11 @@
             android:ems="10"
             android:inputType="textMultiLine|textPersonName"
             android:singleLine="false"
-            android:text="Name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+            app:layout_constraintTop_toBottomOf="@+id/textView13"
+            android:autofillHints="@string/cause"
+            tools:ignore="LabelFor" />
 
         <TextView
             android:id="@+id/textView14"
@@ -97,7 +100,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="Дата посещения"
+            android:text="@string/doctor_date_begin"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edt_doctor_cause" />
 
@@ -107,7 +110,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:onClick="setVisitDate"
-            android:text="TextView"
+            android:text="@string/text_view"
             android:textColor="#000000"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -119,7 +122,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="Рецепт"
+            android:text="@string/recipe"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_doctor_visit" />
 
@@ -131,10 +134,11 @@
             android:ems="10"
             android:inputType="textMultiLine|textPersonName"
             android:singleLine="false"
-            android:text="Name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView16" />
+            app:layout_constraintTop_toBottomOf="@+id/textView16"
+            android:autofillHints="@string/recipe"
+            tools:ignore="LabelFor" />
 
         <TextView
             android:id="@+id/textView17"
@@ -142,7 +146,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="Итоги"
+            android:text="@string/result"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edt_doctor_recipe" />
 
@@ -154,10 +158,11 @@
             android:ems="10"
             android:inputType="textMultiLine|textPersonName"
             android:singleLine="false"
-            android:text="Name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView17" />
+            app:layout_constraintTop_toBottomOf="@+id/textView17"
+            android:autofillHints="@string/result"
+            tools:ignore="LabelFor" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

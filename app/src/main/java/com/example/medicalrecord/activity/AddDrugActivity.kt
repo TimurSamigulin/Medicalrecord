@@ -3,16 +3,15 @@ package com.example.medicalrecord.activity
 import android.app.Activity
 import android.app.DatePickerDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import com.example.medicalrecord.R
 import com.example.medicalrecord.enumclass.UnitMedicine
 import kotlinx.android.synthetic.main.toolbar.*
-import org.w3c.dom.Text
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -66,7 +65,7 @@ class AddDrugActivity : AppCompatActivity(),AdapterView.OnItemSelectedListener {
             return
         }
 
-        val data: Intent = Intent()
+        val data = Intent()
         data.putExtra(EXTRA_TITLE, title)
         data.putExtra(EXTRA_DAY, day)
         data.putExtra(EXTRA_BEGIN_DATE, beginDate.timeInMillis)
@@ -79,7 +78,7 @@ class AddDrugActivity : AppCompatActivity(),AdapterView.OnItemSelectedListener {
     }
 
 
-    fun setMedicineBeginDay(view: View) {
+    fun setMedicineBeginDay(@Suppress("UNUSED_PARAMETER")view: View) {
         DatePickerDialog(this, onBeginDateListener,
             beginDate.get(Calendar.YEAR),
             beginDate.get(Calendar.MONTH),
@@ -87,7 +86,7 @@ class AddDrugActivity : AppCompatActivity(),AdapterView.OnItemSelectedListener {
     }
 
     private val onBeginDateListener = DatePickerDialog.OnDateSetListener{
-            view, year, month, day ->
+            _, year, month, day ->
         beginDate.set(Calendar.YEAR, year)
         beginDate.set(Calendar.MONTH, month)
         beginDate.set(Calendar.DAY_OF_MONTH, day)
