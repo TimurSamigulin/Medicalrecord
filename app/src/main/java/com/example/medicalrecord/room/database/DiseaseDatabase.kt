@@ -15,7 +15,7 @@ import com.example.medicalrecord.room.model.Doctor
 import com.example.medicalrecord.room.model.Medicine
 import kotlinx.coroutines.CoroutineScope
 
-@Database(entities = [(Disease::class), (Doctor::class), (Medicine::class)], version = 1)
+@Database(entities = [(Disease::class), (Doctor::class), (Medicine::class)], version = 1, exportSchema = false)
 @TypeConverters((DateConverter::class))
 abstract class DiseaseDatabase: RoomDatabase() {
     abstract fun DAODisease(): DAODisease
@@ -26,7 +26,7 @@ abstract class DiseaseDatabase: RoomDatabase() {
         @Volatile
         private var INSTANCE: DiseaseDatabase? = null
 
-        fun getInstance(context: Context, scope: CoroutineScope): DiseaseDatabase {
+        fun getInstance(context: Context, @Suppress("UNUSED_PARAMETER")scope: CoroutineScope): DiseaseDatabase {
             val tempInstance = INSTANCE
             if (tempInstance != null) {
                 return tempInstance

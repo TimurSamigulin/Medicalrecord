@@ -21,10 +21,15 @@ class AddDoctorActivity : AppCompatActivity() {
     companion object {
         @JvmStatic
         val EXTRA_TITLE = "adddoctoractivity.TITLE"
+        @JvmStatic
         val EXTRA_HOSPITAL = "adddoctoractivity.HOSPITAL"
+        @JvmStatic
         val EXTRA_CAUSE = "adddoctoractivity.CAUSE"
+        @JvmStatic
         val EXTRA_VISIT = "adddoctoractivity.VISIT"
+        @JvmStatic
         val EXTRA_RECIPE = "adddoctoractivity.RECIPE"
+        @JvmStatic
         val EXTRA_RESULT = "adddoctoractivity.RESULT"
     }
 
@@ -42,7 +47,7 @@ class AddDoctorActivity : AppCompatActivity() {
         setContentView(R.layout.activity_add_doctor)
         setSupportActionBar(toolbar)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_close)
-        setTitle("Визит к доктору")
+        title = "Визит к доктору"
 
         editTitle = findViewById(R.id.edt_medicine_title)
         editHospital = findViewById(R.id.edt_doctor_hospital)
@@ -69,7 +74,7 @@ class AddDoctorActivity : AppCompatActivity() {
             return
         }
 
-        val data: Intent = Intent()
+        val data = Intent()
         data.putExtra(EXTRA_TITLE, title)
         data.putExtra(EXTRA_HOSPITAL, hospital)
         data.putExtra(EXTRA_CAUSE, cause)
@@ -95,14 +100,14 @@ class AddDoctorActivity : AppCompatActivity() {
         }
     }
 
-    fun setVisitDate(view: View) {
+    fun setVisitDate(@Suppress("UNUSED_PARAMETER")view: View) {
         DatePickerDialog(this, onVisitDateListener,
             visitDate.get(Calendar.YEAR),
             visitDate.get(Calendar.MONTH),
             visitDate.get(Calendar.DAY_OF_MONTH)).show()
     }
 
-    val onVisitDateListener = DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+    private val onVisitDateListener = DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
         visitDate.set(Calendar.YEAR, year)
         visitDate.set(Calendar.MONTH, month)
         visitDate.set(Calendar.DAY_OF_MONTH, dayOfMonth)

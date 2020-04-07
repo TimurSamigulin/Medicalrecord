@@ -43,7 +43,7 @@ class DoctorActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
         tabs_disease.setupWithViewPager(viewpager_disease)
 
         val fab: View = findViewById(R.id.fab)
-        fab.setOnClickListener { view ->
+        fab.setOnClickListener {
             intent = Intent(this, AddDoctorActivity::class.java)
             startActivityForResult(intent, ADD_DOCTOR_REQUEST)
         }
@@ -52,11 +52,11 @@ class DoctorActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.nav_menu_disease -> {
-                val intent: Intent = Intent(this, DiseaseActivity::class.java)
+                val intent = Intent(this, DiseaseActivity::class.java)
                 startActivity(intent)
             }
             R.id.nav_menu_drug -> {
-                val intent: Intent = Intent(this, DrugActivity::class.java)
+                val intent = Intent(this, DrugActivity::class.java)
                 startActivity(intent)
             }
         }
