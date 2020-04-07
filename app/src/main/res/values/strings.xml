@@ -15,4 +15,5 @@
     <string name="visit_date">Время приема</string>
     <string name="doctor_title">Врач</string>
     <string name="dose">Доза</string>
+    <string name="save">Save</string>
 </resources>
