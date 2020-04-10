@@ -32,4 +32,10 @@
     <string name="date_begin_disease">Дата начала болезни</string>
     <string name="_11_03_2020">11.03.2020</string>
     <string name="course">Ход болезни</string>
+    <string name="detail_disease_begin_date">Начало болезни -</string>
+    <string name="detail_disease_date_end">Дата выздоровления -</string>
+    <string name="edit">Редактировать</string>
+    <string name="detail_visit_date">Дата посещения -</string>
+    <string name="doctor_couse">Причина посещения</string>
+    <string name="doctor_result">Итоги посещения</string>
 </resources>

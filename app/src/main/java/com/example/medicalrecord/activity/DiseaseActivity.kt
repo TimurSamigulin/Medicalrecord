@@ -74,7 +74,7 @@ class DiseaseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
             val dateBegin = data?.getLongExtra(AddDiseaseActivity.EXTRA_DATE_BEGIN, Calendar.getInstance().timeInMillis) ?: Calendar.getInstance().timeInMillis
             //val dateEnd = data?.getLongExtra(AddDiseaseActivity.EXTRA_DATEEND, 0)
 
-            val disease = Disease(null, title, symptoms, dateBegin, null, info, course)
+            val disease = Disease(null, title, symptoms, dateBegin, 0, info, course)
             model.insertDisease(disease)
 
             Toast.makeText(this, "Добавлена болезнь", Toast.LENGTH_SHORT).show()

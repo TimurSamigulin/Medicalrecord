@@ -11,7 +11,7 @@ class Disease constructor(@PrimaryKey(autoGenerate = true) var id: Long?,
                           var symptoms: String,
                           @ColumnInfo(name = "date_begin")
                           var dateBegin: Long,
-                          @ColumnInfo(name = "date_end")
+             //             @ColumnInfo(name = "date_end")
                           var dateEnd: Long?,
                           var info: String?,
                           var course: String?) {
