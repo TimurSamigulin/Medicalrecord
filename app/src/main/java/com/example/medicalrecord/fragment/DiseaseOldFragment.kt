@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.example.medicalrecord.R
+import com.example.medicalrecord.activity.AddDiseaseActivity
 import com.example.medicalrecord.activity.DetailDiseaseActivity
 import com.example.medicalrecord.adapter.DiseaseAdapter
 import com.example.medicalrecord.adapter.impl.OnDiseaseAdapterBtnClickListener
@@ -51,12 +52,13 @@ class DiseaseOldFragment : Fragment(), OnDiseaseAdapterBtnClickListener {
 
     override fun onDiseaseViewClickListener(disease: Disease) {
         val intent = Intent(activity, DetailDiseaseActivity::class.java)
-        intent.putExtra(DetailDiseaseActivity.EXTRA_TITLE, disease.title)
-        intent.putExtra(DetailDiseaseActivity.EXTRA_COURSE, disease.course)
-        intent.putExtra(DetailDiseaseActivity.EXTRA_DATE_BEGIN, disease.dateBegin)
-        intent.putExtra(DetailDiseaseActivity.EXTRA_DATE_END, disease.dateEnd)
-        intent.putExtra(DetailDiseaseActivity.EXTRA_SYMPTOMS, disease.symptoms)
-        intent.putExtra(DetailDiseaseActivity.EXTRA_INFO, disease.info)
+        intent.putExtra(AddDiseaseActivity.EXTRA_ID, disease.id)
+        intent.putExtra(AddDiseaseActivity.EXTRA_TITLE, disease.title)
+        intent.putExtra(AddDiseaseActivity.EXTRA_COURSE, disease.course)
+        intent.putExtra(AddDiseaseActivity.EXTRA_DATE_BEGIN, disease.dateBegin)
+        intent.putExtra(AddDiseaseActivity.EXTRA_DATE_END, disease.dateEnd)
+        intent.putExtra(AddDiseaseActivity.EXTRA_SYMPTOMS, disease.symptoms)
+        intent.putExtra(AddDiseaseActivity.EXTRA_INFO, disease.info)
         startActivity(intent)
     }
 

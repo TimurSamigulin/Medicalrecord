@@ -11,6 +11,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.isVisible
 import com.example.medicalrecord.R
 import kotlinx.android.synthetic.main.toolbar.*
 import java.text.SimpleDateFormat
@@ -19,6 +20,8 @@ import java.util.*
 class AddDiseaseActivity : AppCompatActivity() {
 
     companion object {
+        @JvmStatic
+        val EXTRA_ID = "adddiseaseactivity.ID"
         @JvmStatic
         val EXTRA_TITLE = "adddiseaseactivity.TITLE"
         @JvmStatic
@@ -29,17 +32,20 @@ class AddDiseaseActivity : AppCompatActivity() {
         val EXTRA_DATE_BEGIN = "adddiseaseactivity.DATEBEGIN"
         @JvmStatic
         val EXTRA_COURSE = "adddiseaseactivity.COURSE"
+        @JvmStatic
+        val EXTRA_DATE_END = "adddiseaseactivity.DATE_END"
     }
 
     private lateinit var editTitle: EditText
     private lateinit var editSymptoms: EditText
     private lateinit var txtBeginDate: TextView
-    //private lateinit var txtEndDate: TextView
+    private lateinit var txtEndDate: TextView
+    private lateinit var txtEnd: TextView
     private lateinit var editInfo: EditText
     private lateinit var editCouse: EditText
 
     private var beginDate: Calendar = Calendar.getInstance()
-    //var endDate: Calendar = Calendar.getInstance()
+    private var endDate: Calendar = Calendar.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,13 +57,34 @@ class AddDiseaseActivity : AppCompatActivity() {
         editTitle = findViewById(R.id.edt_disease_title)
         editSymptoms = findViewById(R.id.edt_disease_symptoms)
         txtBeginDate = findViewById(R.id.txt_disease_begin_date)
-        //txtEndDate = findViewById<TextView>(R.id.txt_disease_end_date)
+        txtEndDate = findViewById(R.id.txt_disease_end_date)
+        txtEnd = findViewById(R.id.txt_disease_end)
         editInfo = findViewById(R.id.edt_disease_info)
         editCouse = findViewById(R.id.edt_disease_course)
 
         val simpleDateFormat = SimpleDateFormat("dd.MM.yyyy", Locale.US)
+
+        val intent: Intent = intent
+        if (intent.hasExtra(EXTRA_ID)) {
+            title = "Редактирование болезни"
+
+            editTitle.setText(intent.getStringExtra(EXTRA_TITLE))
+            editSymptoms.setText(intent.getStringExtra(EXTRA_SYMPTOMS))
+            editInfo.setText(intent.getStringExtra(EXTRA_INFO))
+            editCouse.setText(intent.getStringExtra(EXTRA_COURSE))
+            beginDate.timeInMillis = intent.getLongExtra(EXTRA_DATE_BEGIN, 0)
+            if (intent.hasExtra(EXTRA_DATE_END) and (intent.getLongExtra(EXTRA_DATE_END, 0) != 0.toLong())) {
+                txtEnd.text = "Дата выздоровления"
+                endDate.timeInMillis = intent.getLongExtra(EXTRA_DATE_END, 0)
+                txtEndDate.text = simpleDateFormat.format(endDate.time).toString()
+
+                txtEndDate.isClickable = true
+                txtEndDate.visibility = View.VISIBLE
+                txtEnd.visibility = View.VISIBLE
+            }
+        }
+
         txtBeginDate.text = simpleDateFormat.format(beginDate.time).toString()
-        //txtEndDate.text = simpleDateFormat.format(endDate.time).toString()
     }
 
     private fun saveDisease() {
@@ -66,19 +93,29 @@ class AddDiseaseActivity : AppCompatActivity() {
         val symptoms = editSymptoms.text.toString()
         val dateBegin = beginDate.timeInMillis
         val course = editCouse.text.toString()
-        //val dateEnd = endDate.timeInMillis
+        val dateEnd = endDate.timeInMillis
+
         if (title.trim().isEmpty()) {
             Toast.makeText(this, "Заполните название болезни", Toast.LENGTH_LONG).show()
             return
         }
 
+        val intent: Intent = intent
+        val id = intent.getLongExtra(EXTRA_ID, -1)
+
         val data = Intent()
+        if (id != (-1).toLong()) {
+            data.putExtra(EXTRA_ID, id)
+        }
+        if (txtEndDate.isVisible) {
+            data.putExtra(EXTRA_DATE_END, dateEnd)
+        }
+
         data.putExtra(EXTRA_TITLE, title)
         data.putExtra(EXTRA_SYMPTOMS, symptoms)
         data.putExtra(EXTRA_INFO, info)
         data.putExtra(EXTRA_DATE_BEGIN, dateBegin)
         data.putExtra(EXTRA_COURSE, course)
-        //data.putExtra(AddDiseaseActivity.EXTRA_DATEEND, dateEnd)
 
         setResult(Activity.RESULT_OK, data)
         finish()
@@ -115,20 +152,20 @@ class AddDiseaseActivity : AppCompatActivity() {
         txtBeginDate.text = simpleDateFormat.format(beginDate.time).toString()
     }
 
-    /*fun setEndDate(view: View) {
+    fun setEndDate(view: View) {
         DatePickerDialog(this, onEndDateListener,
                         endDate.get(Calendar.YEAR),
                         endDate.get(Calendar.MONTH),
                         endDate.get(Calendar.DAY_OF_MONTH)).show()
     }
 
-    val onEndDateListener = DatePickerDialog.OnDateSetListener{
-        view, year, month, dayOfMonth ->
+    private val onEndDateListener = DatePickerDialog.OnDateSetListener{
+            _, year, month, dayOfMonth ->
             endDate.set(Calendar.YEAR, year)
             endDate.set(Calendar.MONTH, month)
             endDate.set(Calendar.DAY_OF_MONTH, dayOfMonth)
 
             val simpleDateFormat = SimpleDateFormat("dd.MM.yyyy", Locale.US)
             txtEndDate.text = simpleDateFormat.format(endDate.time).toString()
-    }*/
+    }
 }
