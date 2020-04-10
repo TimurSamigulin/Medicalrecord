@@ -29,7 +29,6 @@ class AddDiseaseActivity : AppCompatActivity() {
         val EXTRA_DATE_BEGIN = "adddiseaseactivity.DATEBEGIN"
         @JvmStatic
         val EXTRA_COURSE = "adddiseaseactivity.COURSE"
-        const val EXTRA_DATE_END = "adddiseaseactivity.DATEEND"
     }
 
     private lateinit var editTitle: EditText

@@ -1,5 +1,6 @@
 package com.example.medicalrecord.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.example.medicalrecord.R
+import com.example.medicalrecord.activity.DetailDoctorActivity
 import com.example.medicalrecord.adapter.DoctorAdapter
 import com.example.medicalrecord.adapter.impl.OnDoctorBtnClickListener
 import com.example.medicalrecord.room.model.Doctor
@@ -54,7 +56,14 @@ class DoctorCurrentFragment : Fragment(), OnDoctorBtnClickListener {
     }
 
     override fun onDoctorViewClickListener(doctor: Doctor) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val intent = Intent(activity, DetailDoctorActivity::class.java)
+        intent.putExtra(DetailDoctorActivity.EXTRA_TITLE, doctor.title)
+        intent.putExtra(DetailDoctorActivity.EXTRA_CAUSE, doctor.cause)
+        intent.putExtra(DetailDoctorActivity.EXTRA_HOSPITAL, doctor.hospital)
+        intent.putExtra(DetailDoctorActivity.EXTRA_DATE_VISIT, doctor.visitDate)
+        intent.putExtra(DetailDoctorActivity.EXTRA_RESULT, doctor.result)
+        intent.putExtra(DetailDoctorActivity.EXTRA_RECIPE, doctor.recipe)
+        startActivity(intent)
     }
 
 

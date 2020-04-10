@@ -9,17 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.AddDrugActivity"
-            android:parentActivityName=".activity.DrugActivity"/>
-        <activity android:name=".activity.AddDoctorActivity"
-            android:parentActivityName=".activity.DoctorActivity"/>
-        <activity android:name=".activity.AddDiseaseActivity"
-            android:parentActivityName=".activity.DiseaseActivity"/>
+        <activity android:name=".activity.DetailDoctorActivity"></activity>
+        <activity android:name=".activity.DetailDiseaseActivity" />
+        <activity
+            android:name=".activity.AddDrugActivity"
+            android:parentActivityName=".activity.DrugActivity" />
+        <activity
+            android:name=".activity.AddDoctorActivity"
+            android:parentActivityName=".activity.DoctorActivity" />
+        <activity
+            android:name=".activity.AddDiseaseActivity"
+            android:parentActivityName=".activity.DiseaseActivity" />
         <activity android:name=".activity.DrugActivity" />
         <activity android:name=".activity.DoctorActivity" />
         <activity android:name=".activity.DiseaseActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

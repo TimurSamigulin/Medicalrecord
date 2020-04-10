@@ -1,5 +1,6 @@
 package com.example.medicalrecord.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.example.medicalrecord.R
+import com.example.medicalrecord.activity.DetailDiseaseActivity
 import com.example.medicalrecord.adapter.DiseaseAdapter
 import com.example.medicalrecord.adapter.impl.OnDiseaseAdapterBtnClickListener
 import com.example.medicalrecord.room.model.Disease
@@ -41,14 +43,21 @@ class DiseaseOldFragment : Fragment(), OnDiseaseAdapterBtnClickListener {
         disease_recycler_view.apply {
             layoutManager = LinearLayoutManager(activity)
             adapter = DiseaseAdapter(this@DiseaseOldFragment)
-            model.oldDisease.observe(viewLifecycleOwner, Observer {
+            model.allDisease.observe(viewLifecycleOwner, Observer {
                     diseases -> diseases?.let { (adapter as DiseaseAdapter).setItems(it) }
             })
         }
     }
 
     override fun onDiseaseViewClickListener(disease: Disease) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val intent = Intent(activity, DetailDiseaseActivity::class.java)
+        intent.putExtra(DetailDiseaseActivity.EXTRA_TITLE, disease.title)
+        intent.putExtra(DetailDiseaseActivity.EXTRA_COURSE, disease.course)
+        intent.putExtra(DetailDiseaseActivity.EXTRA_DATE_BEGIN, disease.dateBegin)
+        intent.putExtra(DetailDiseaseActivity.EXTRA_DATE_END, disease.dateEnd)
+        intent.putExtra(DetailDiseaseActivity.EXTRA_SYMPTOMS, disease.symptoms)
+        intent.putExtra(DetailDiseaseActivity.EXTRA_INFO, disease.info)
+        startActivity(intent)
     }
 
 }
