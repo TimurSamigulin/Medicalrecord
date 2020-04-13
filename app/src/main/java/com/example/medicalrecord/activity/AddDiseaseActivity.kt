@@ -152,7 +152,7 @@ class AddDiseaseActivity : AppCompatActivity() {
         txtBeginDate.text = simpleDateFormat.format(beginDate.time).toString()
     }
 
-    fun setEndDate(view: View) {
+    fun setEndDate(@Suppress("UNUSED_PARAMETER")view: View) {
         DatePickerDialog(this, onEndDateListener,
                         endDate.get(Calendar.YEAR),
                         endDate.get(Calendar.MONTH),

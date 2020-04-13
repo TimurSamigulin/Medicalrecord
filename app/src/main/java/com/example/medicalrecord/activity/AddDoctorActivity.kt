@@ -20,6 +20,8 @@ class AddDoctorActivity : AppCompatActivity() {
 
     companion object {
         @JvmStatic
+        val EXTRA_ID = "adddoctoractivity.ID"
+        @JvmStatic
         val EXTRA_TITLE = "adddoctoractivity.TITLE"
         @JvmStatic
         val EXTRA_HOSPITAL = "adddoctoractivity.HOSPITAL"
@@ -57,8 +59,20 @@ class AddDoctorActivity : AppCompatActivity() {
         txtVisitDate = findViewById(R.id.txt_doctor_visit)
 
         val simpleDateFormat = SimpleDateFormat("dd.MM.yyyy", Locale.US)
-        txtVisitDate.text = simpleDateFormat.format(visitDate.time).toString()
 
+        val intent: Intent = intent
+        if (intent.hasExtra(EXTRA_ID)) {
+            title = "Обновление информации о посещении врача"
+
+            editTitle.setText(intent.getStringExtra(EXTRA_TITLE))
+            editHospital.setText(intent.getStringExtra(EXTRA_HOSPITAL))
+            editCause.setText(intent.getStringExtra(EXTRA_CAUSE))
+            editRecipe.setText(intent.getStringExtra(EXTRA_RECIPE))
+            editResult.setText(intent.getStringExtra(EXTRA_RESULT))
+            visitDate.timeInMillis = intent.getLongExtra(EXTRA_VISIT, Calendar.getInstance().timeInMillis)
+        }
+
+        txtVisitDate.text = simpleDateFormat.format(visitDate.time).toString()
     }
 
     private fun saveDoctor() {
@@ -74,7 +88,14 @@ class AddDoctorActivity : AppCompatActivity() {
             return
         }
 
+        val intent: Intent = intent
+        val id = intent.getLongExtra(EXTRA_ID, -1)
+
+
         val data = Intent()
+        if (id != (-1).toLong()) {
+            data.putExtra(EXTRA_ID, id)
+        }
         data.putExtra(EXTRA_TITLE, title)
         data.putExtra(EXTRA_HOSPITAL, hospital)
         data.putExtra(EXTRA_CAUSE, cause)
