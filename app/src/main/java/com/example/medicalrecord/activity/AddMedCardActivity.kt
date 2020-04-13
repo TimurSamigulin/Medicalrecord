@@ -76,6 +76,18 @@ class AddMedCardActivity : AppCompatActivity() {
         editDonor = findViewById(R.id.edt_mc_donor)
         txtBirthday = findViewById(R.id.txt_mc_birthday)
 
+        val intent: Intent = intent
+        editName.setText(intent.getStringExtra(EXTRA_NAME) ?: "")
+        editLastName.setText(intent.getStringExtra(EXTRA_LASTNAME) ?: "")
+        editHight.setText(intent.getStringExtra(EXTRA_HIGHT) ?: "")
+        editWeight.setText(intent.getStringExtra(EXTRA_WEIGHT) ?: "")
+        editBlood.setText(intent.getStringExtra(EXTRA_BLOOD) ?: "")
+        editAllergy.setText(intent.getStringExtra(EXTRA_ALLERGY) ?: "")
+        editImpDisease.setText(intent.getStringExtra(EXTRA_DISEASE) ?: "")
+        editImpMedicine.setText(intent.getStringExtra(EXTRA_MEDICINE) ?: "")
+        editDonor.setText(intent.getStringExtra(EXTRA_DONOR) ?: "")
+        birthday.timeInMillis = intent.getLongExtra(EXTRA_BIRTHDAY, Calendar.getInstance().timeInMillis)
+
         txtBirthday.text = simpleDateFormat.format(birthday.time).toString()
     }
 
