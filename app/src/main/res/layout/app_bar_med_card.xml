@@ -71,7 +71,7 @@
             app:layout_constraintTop_toBottomOf="@+id/txt_mc_name" />
 
         <TextView
-            android:id="@+id/textView33"
+            android:id="@+id/txt_mc_birthday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -148,7 +148,7 @@
             app:layout_constraintTop_toBottomOf="@+id/txt_mc_hight" />
 
         <TextView
-            android:id="@+id/txt_mv_allergies"
+            android:id="@+id/txt_mc_allergies"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -164,7 +164,7 @@
             android:layout_marginTop="24dp"
             android:text="@string/important_disease"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_mv_allergies" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_mc_allergies" />
 
         <TextView
             android:id="@+id/txt_mc_important_disease"

@@ -1,13 +1,13 @@
 package com.example.medicalrecord.room.dao
 
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.lifecycle.LiveData
+import androidx.room.*
 import com.example.medicalrecord.room.model.MedCard
 
+
+@Dao
 interface DAOMedCard {
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMedCard(medCard: MedCard)
 
     @Update
@@ -17,8 +17,11 @@ interface DAOMedCard {
     suspend fun deleteMedCard(medCard: MedCard)
 
     @Query("SELECT * FROM MedCard")
-    fun gedMedCard(): MedCard
+    fun gedAllMedCard(): MedCard
 
-    @Query("DELETE * FROM MedCard")
+    @Query("SELECT * FROM MedCard WHERE id = :id")
+    fun gedMedCard(id: Long): LiveData<MedCard>
+
+    @Query("DELETE FROM MedCard")
     fun deleteAllMedCard()
 }
