@@ -1,32 +1,32 @@
 package com.example.medicalrecord.activity
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import com.example.medicalrecord.R
+import com.example.medicalrecord.room.model.Doctor
+import com.example.medicalrecord.viewmodel.DoctorViewModel
 import kotlinx.android.synthetic.main.toolbar.*
 import java.text.SimpleDateFormat
 import java.util.*
 
 class DetailDoctorActivity : AppCompatActivity() {
+    private val EDIT_DOCTOR_REQUEST = 1
+    private lateinit var model: DoctorViewModel
 
-    companion object {
-        @JvmStatic
-        val EXTRA_TITLE = "DetailDoctorActivity.TITLE"
-        @JvmStatic
-        val EXTRA_CAUSE = "DetailDoctorActivity.CAUSE"
-        @JvmStatic
-        val EXTRA_HOSPITAL = "DetailDoctorActivity.HOSPITAL"
-        @JvmStatic
-        val EXTRA_DATE_VISIT = "DetailDoctorActivity.DATE_VISIT"
-        @JvmStatic
-        val EXTRA_RESULT = "DetailDoctorActivity.RESULT"
-        @JvmStatic
-        val EXTRA_RECIPE = "DetailDoctorActivity.RECIPE"
-    }
+    private var dId: Long = -1
+    private lateinit var dTitle: String
+    private lateinit var dCause: String
+    private lateinit var dHospital: String
+    private lateinit var dResult: String
+    private lateinit var dRecipe: String
+    private var dVisitDate: Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,8 +34,21 @@ class DetailDoctorActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         title = "Посещение к врачу"
 
+        model = ViewModelProvider(this).get(DoctorViewModel::class.java)
+
         val intent: Intent = intent
 
+        dTitle = intent.getStringExtra(AddDoctorActivity.EXTRA_TITLE) ?: ""
+        dCause = intent.getStringExtra(AddDoctorActivity.EXTRA_CAUSE) ?: ""
+        dHospital = intent.getStringExtra(AddDoctorActivity.EXTRA_HOSPITAL) ?: ""
+        dResult = intent.getStringExtra(AddDoctorActivity.EXTRA_RESULT) ?: ""
+        dRecipe = intent.getStringExtra(AddDoctorActivity.EXTRA_RECIPE) ?: ""
+        dVisitDate = intent.getLongExtra(AddDoctorActivity.EXTRA_VISIT, 0)
+
+        assignText()
+    }
+
+    private fun assignText() {
         val txtTitle: TextView = findViewById(R.id.txt_detail_doctor_title)
         val txtCause: TextView = findViewById(R.id.txt_detail_doctor_cause)
         val txtHospital: TextView = findViewById(R.id.txt_detail_doctor_hospital)
@@ -43,23 +56,20 @@ class DetailDoctorActivity : AppCompatActivity() {
         val txtResult: TextView = findViewById(R.id.txt_detail_doctor_result)
         val txtRecipe: TextView = findViewById(R.id.txt_detail_doctor_recipe)
 
-        txtTitle.text = intent.getStringExtra(EXTRA_TITLE) ?: ""
-        txtCause.text = intent.getStringExtra(EXTRA_CAUSE) ?: ""
-        txtHospital.text = intent.getStringExtra(EXTRA_HOSPITAL) ?: ""
-        txtResult.text = intent.getStringExtra(EXTRA_RESULT) ?: ""
-        txtRecipe.text = intent.getStringExtra(EXTRA_RECIPE) ?: ""
+        txtTitle.text = dTitle
+        txtCause.text = dCause
+        txtHospital.text = dHospital
+        txtResult.text = dResult
+        txtRecipe.text = dRecipe
 
-        val visitDate: Long = intent.getLongExtra(EXTRA_DATE_VISIT, 0)
-
-        if(visitDate != 0.toLong()) {
+        if(dVisitDate != 0.toLong()) {
             val calendar = Calendar.getInstance()
-            calendar.timeInMillis = visitDate
+            calendar.timeInMillis = dVisitDate
             val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.US)
             txtVisitDate.text = formatter.format(calendar.time).toString()
         } else {
             txtVisitDate.text = "..."
         }
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -70,10 +80,48 @@ class DetailDoctorActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId){
             R.id.edit -> {
-                TODO("edit activity")
-                true
+                val intent = Intent(this, AddDoctorActivity::class.java)
+
+                intent.putExtra(AddDoctorActivity.EXTRA_ID, dId)
+                intent.putExtra(AddDoctorActivity.EXTRA_VISIT, dVisitDate)
+                intent.putExtra(AddDoctorActivity.EXTRA_RESULT, dResult)
+                intent.putExtra(AddDoctorActivity.EXTRA_RECIPE, dRecipe)
+                intent.putExtra(AddDoctorActivity.EXTRA_CAUSE, dCause)
+                intent.putExtra(AddDoctorActivity.EXTRA_HOSPITAL, dHospital)
+                intent.putExtra(AddDoctorActivity.EXTRA_TITLE, dTitle)
+
+                startActivityForResult(intent, EDIT_DOCTOR_REQUEST)
+                return true
             }
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if ((requestCode == EDIT_DOCTOR_REQUEST) and (resultCode == Activity.RESULT_OK)) {
+            val id: Long = data?.getLongExtra(AddDoctorActivity.EXTRA_ID, -1) ?: -1
+
+            if (id == (-1).toLong()) {
+                Toast.makeText(this, "Запись о докторе не обновлена", Toast.LENGTH_SHORT).show()
+                return
+            }
+
+            dTitle = data?.getStringExtra(AddDoctorActivity.EXTRA_TITLE) ?: ""
+            dCause = data?.getStringExtra(AddDoctorActivity.EXTRA_CAUSE) ?: ""
+            dHospital = data?.getStringExtra(AddDoctorActivity.EXTRA_HOSPITAL) ?: ""
+            dRecipe = data?.getStringExtra(AddDoctorActivity.EXTRA_RECIPE) ?: ""
+            dResult = data?.getStringExtra(AddDoctorActivity.EXTRA_RESULT) ?: ""
+            dVisitDate = data?.getLongExtra(AddDoctorActivity.EXTRA_VISIT, 0) ?: 0
+            dId = id
+
+            val doctor: Doctor = Doctor(dId, null, dTitle, dCause, dHospital, dVisitDate, dResult, dRecipe)
+            model.updateDoctor(doctor)
+
+            Toast.makeText(this, "Запись о докторе обновлена", Toast.LENGTH_SHORT).show()
+            assignText()
+        } else {
+            Toast.makeText(this, "Запись о докторе не обновлена", Toast.LENGTH_SHORT).show()
         }
     }
 }

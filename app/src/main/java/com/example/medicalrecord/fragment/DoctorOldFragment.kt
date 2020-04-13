@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.example.medicalrecord.R
+import com.example.medicalrecord.activity.AddDoctorActivity
 import com.example.medicalrecord.activity.DetailDoctorActivity
 import com.example.medicalrecord.adapter.DoctorAdapter
 import com.example.medicalrecord.adapter.impl.OnDoctorBtnClickListener
@@ -53,12 +54,13 @@ class DoctorOldFragment : Fragment(), OnDoctorBtnClickListener {
 
     override fun onDoctorViewClickListener(doctor: Doctor) {
         val intent = Intent(activity, DetailDoctorActivity::class.java)
-        intent.putExtra(DetailDoctorActivity.EXTRA_TITLE, doctor.title)
-        intent.putExtra(DetailDoctorActivity.EXTRA_CAUSE, doctor.cause)
-        intent.putExtra(DetailDoctorActivity.EXTRA_HOSPITAL, doctor.hospital)
-        intent.putExtra(DetailDoctorActivity.EXTRA_DATE_VISIT, doctor.visitDate)
-        intent.putExtra(DetailDoctorActivity.EXTRA_RESULT, doctor.result)
-        intent.putExtra(DetailDoctorActivity.EXTRA_RECIPE, doctor.recipe)
+        intent.putExtra(AddDoctorActivity.EXTRA_TITLE, doctor.title)
+        intent.putExtra(AddDoctorActivity.EXTRA_CAUSE, doctor.cause)
+        intent.putExtra(AddDoctorActivity.EXTRA_HOSPITAL, doctor.hospital)
+        intent.putExtra(AddDoctorActivity.EXTRA_VISIT, doctor.visitDate)
+        intent.putExtra(AddDoctorActivity.EXTRA_RESULT, doctor.result)
+        intent.putExtra(AddDoctorActivity.EXTRA_RECIPE, doctor.recipe)
+        intent.putExtra(AddDoctorActivity.EXTRA_ID, doctor.id)
         startActivity(intent)
     }
 
