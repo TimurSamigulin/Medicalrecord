@@ -19,6 +19,7 @@ class Doctor constructor(@PrimaryKey(autoGenerate = true) var id: Long?,
                          @ColumnInfo(name = "visit_date")
                          var visitDate: Long,
                          var result: String,
-                         var recipe: String) {
+                         var recipe: String)
+{
     constructor():this(null, null, "", "", "", Calendar.getInstance().timeInMillis, "", "")
 }

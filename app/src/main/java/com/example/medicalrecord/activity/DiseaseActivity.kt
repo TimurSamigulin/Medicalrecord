@@ -51,6 +51,10 @@ class DiseaseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
+            R.id.nav_menu_med_card -> {
+                val intent = Intent(this, MedCardActivity::class.java)
+                startActivity(intent)
+            }
             R.id.nav_menu_doctor -> {
                 val intent = Intent(this, DoctorActivity::class.java)
                 startActivity(intent)
