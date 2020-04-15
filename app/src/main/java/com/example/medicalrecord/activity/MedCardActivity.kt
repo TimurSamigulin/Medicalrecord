@@ -1,7 +1,9 @@
 package com.example.medicalrecord.activity
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -24,6 +26,8 @@ import java.util.*
 class MedCardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var model: MedCardViewModel
     private val EDIT_MEDCARD_REQUEST = 1
+    private val APP_PREFERENCES = "mysetting"
+    private val APP_PREFERENCES_FIRST = "first"
 
     private lateinit var name: String
     private lateinit var lastname: String
@@ -35,6 +39,7 @@ class MedCardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
     private lateinit var medicine: String
     private lateinit var donor: String
     private var birthday: Calendar = Calendar.getInstance()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +53,13 @@ class MedCardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         med_card_nav_view.setNavigationItemSelectedListener(this)
 
         model = ViewModelProvider(this).get(MedCardViewModel::class.java)
+
+        val mySetting: SharedPreferences = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE)
+        if (!mySetting.contains(APP_PREFERENCES_FIRST)) {
+            model.insertMedCard(MedCard())
+            val intent = Intent(this, AddMedCardActivity::class.java)
+            startActivityForResult(intent, EDIT_MEDCARD_REQUEST)
+        }
         model.medCard.observe(this, Observer { medCard ->
             name = medCard.name
             lastname = medCard.lastName
@@ -61,7 +73,6 @@ class MedCardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
             birthday.timeInMillis = medCard.bithDate
             assignText()
         })
-
     }
 
     private fun assignText() {
@@ -150,6 +161,13 @@ class MedCardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
             val medicine = data?.getStringExtra(AddMedCardActivity.EXTRA_MEDICINE) ?: ""
             val donor = data?.getStringExtra(AddMedCardActivity.EXTRA_DONOR) ?: ""
             val birthday = data?.getLongExtra(AddMedCardActivity.EXTRA_BIRTHDAY, Calendar.getInstance().timeInMillis) ?: Calendar.getInstance().timeInMillis
+
+            val mySetting: SharedPreferences = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE)
+            if(!mySetting.contains(APP_PREFERENCES_FIRST)) {
+                val editor: SharedPreferences.Editor = mySetting.edit()
+                editor.putBoolean(APP_PREFERENCES_FIRST, true)
+                editor.apply()
+            }
 
             val medCard = MedCard(null, name, lastname, birthday, hight, weight, blood, allergy, disease, medicine, donor, "")
             model.insertMedCard(medCard)

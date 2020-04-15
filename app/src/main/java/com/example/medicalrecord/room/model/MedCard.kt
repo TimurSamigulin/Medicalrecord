@@ -24,5 +24,5 @@ class MedCard constructor(@PrimaryKey(autoGenerate = true) var id: Long?,
                           val photo_uri: String
 )
 {
-    constructor():this(null, "", "", 0, 0, 0, 0, "", "", "", "", "")
+    constructor():this(null, "...", "...", 0, 0, 0, 0, "...", "...", "...", "...", "")
 }

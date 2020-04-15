@@ -102,13 +102,20 @@ class AddMedCardActivity : AppCompatActivity() {
         val medicine = editImpMedicine.text.toString()
         val donor = editDonor.text.toString()
         val hight: Int
-        val weight: Int = weightText.trim().toInt()
+        val weight: Int
         val blood: Int
 
         try {
             hight = hightText.trim().toInt()
         }catch (e: NumberFormatException) {
             Toast.makeText(this, "Введите число в рост", Toast.LENGTH_LONG).show()
+            return
+        }
+
+        try {
+            weight = weightText.trim().toInt()
+        }catch (e: NumberFormatException) {
+            Toast.makeText(this, "Введите число в вес", Toast.LENGTH_LONG).show()
             return
         }
 
