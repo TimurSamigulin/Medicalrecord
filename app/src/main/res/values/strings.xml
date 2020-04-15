@@ -38,4 +38,14 @@
     <string name="detail_visit_date">Дата посещения -</string>
     <string name="doctor_couse">Причина посещения</string>
     <string name="doctor_result">Итоги посещения</string>
+    <string name="avatar">avatar</string>
+    <string name="mc_date_birth">Дата рождения -</string>
+    <string name="hight">Рост</string>
+    <string name="pass">...</string>
+    <string name="weight">Вес</string>
+    <string name="blood">Группа крови</string>
+    <string name="allergies">Аллергии</string>
+    <string name="important_disease">Важные заболевания</string>
+    <string name="important_medicine">Принимаемые препораты</string>
+    <string name="donor">Донор органов</string>
 </resources>

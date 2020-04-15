@@ -9,9 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MedCard"></activity>
-        <activity android:name=".activity.DetailDoctorActivity" />
-        <activity android:name=".activity.DetailDiseaseActivity" />
+        <activity android:name=".activity.AddMedCardActivity"></activity>
+        <activity android:name=".activity.MedCardActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.DetailDoctorActivity"
+            android:parentActivityName=".activity.DoctorActivity" />
+        <activity
+            android:name=".activity.DetailDiseaseActivity"
+            android:parentActivityName=".activity.DiseaseActivity" />
         <activity
             android:name=".activity.AddDrugActivity"
             android:parentActivityName=".activity.DrugActivity" />
@@ -23,13 +34,7 @@
             android:parentActivityName=".activity.DiseaseActivity" />
         <activity android:name=".activity.DrugActivity" />
         <activity android:name=".activity.DoctorActivity" />
-        <activity android:name=".activity.DiseaseActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".activity.DiseaseActivity" />
     </application>
 
 </manifest>
