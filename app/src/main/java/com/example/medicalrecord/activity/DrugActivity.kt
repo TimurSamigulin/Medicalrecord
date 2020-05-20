@@ -64,6 +64,10 @@ class DrugActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val intent = Intent(this, DiseaseActivity::class.java)
                 startActivity(intent)
             }
+            R.id.nav_menu_hospital -> {
+                val intent = Intent(this, HospitalActivity::class.java)
+                startActivity(intent)
+            }
         }
         drug_drawer_layout.closeDrawer(GravityCompat.START)
         return true

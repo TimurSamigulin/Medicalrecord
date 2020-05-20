@@ -116,6 +116,10 @@ class MedCardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
                 val intent = Intent(this, DrugActivity::class.java)
                 startActivity(intent)
             }
+            R.id.nav_menu_hospital -> {
+                val intent = Intent(this, HospitalActivity::class.java)
+                startActivity(intent)
+            }
         }
         med_card_drawer_layout.closeDrawer(GravityCompat.START)
         return true
