@@ -30,6 +30,8 @@ class HospitalActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
         model = ViewModelProvider(this).get(HospitalViewModel::class.java)
 
+        model.insertHospital(Hospital(null, "Salam", "Bratan", "Bratan"))
+
         val toggle = ActionBarDrawerToggle(this, hospital_drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         hospital_drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
