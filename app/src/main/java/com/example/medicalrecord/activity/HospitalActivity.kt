@@ -19,6 +19,8 @@ class HospitalActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hospital)
+        setSupportActionBar(toolbar)
+        setTitle("Больницы")
 
         model = ViewModelProvider(this).get(HospitalViewModel::class.java)
 
