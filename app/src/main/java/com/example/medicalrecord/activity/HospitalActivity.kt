@@ -71,8 +71,10 @@ class HospitalActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
     }
 
     override fun onHospitalViewClickListener(hospital: Hospital) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val intent = Intent(this, DetailHospitalActivity::class.java)
+        intent.putExtra(DetailHospitalActivity.EXTRA_TITLE, hospital.title)
+        intent.putExtra(DetailHospitalActivity.EXTRA_PHONE, hospital.phone)
+        intent.putExtra(DetailHospitalActivity.EXTRA_ADDRESS, hospital.address)
+        startActivity(intent)
     }
-
-
 }
