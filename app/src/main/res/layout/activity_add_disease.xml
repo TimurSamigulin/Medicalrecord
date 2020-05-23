@@ -29,7 +29,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/disease_title"
-            android:textSize="14sp"
+            android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,11 +40,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:autofillHints="Болезнь"
+            android:inputType="textPersonName"
+            android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3"
-            tools:ignore="LabelFor"
-            android:inputType="textPersonName" />
+            tools:ignore="LabelFor" />
 
         <TextView
             android:id="@+id/textView7"
@@ -52,6 +54,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/symptoms"
+            android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edt_disease_title" />
 
@@ -63,6 +67,7 @@
             android:autofillHints="@string/symptoms"
             android:ems="10"
             android:inputType="textLongMessage|textAutoCorrect|textMultiLine|textPersonName"
+            android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView7"
@@ -75,6 +80,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/date_begin_disease"
+            android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edt_disease_symptoms" />
 
@@ -85,6 +92,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/dop_info"
+            android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edt_disease_course" />
 
@@ -93,13 +102,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:autofillHints="@string/dop_info"
             android:ems="10"
             android:gravity="start|top"
             android:inputType="textMultiLine"
+            android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView11"
-            android:autofillHints="@string/dop_info"
             tools:ignore="LabelFor" />
 
         <TextView
@@ -121,6 +131,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/course"
+            android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_disease_begin_date" />
 
@@ -129,11 +141,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:autofillHints="@string/cause"
             android:ems="10"
             android:inputType="textShortMessage|textLongMessage"
+            android:textColor="#000000"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView20"
-            android:autofillHints="@string/cause"
             tools:ignore="LabelFor" />
 
         <TextView

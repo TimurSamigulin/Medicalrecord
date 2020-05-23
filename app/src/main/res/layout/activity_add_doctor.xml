@@ -31,6 +31,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/doctor_title"
+            android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -54,6 +56,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/hospital"
+            android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edt_medicine_title" />
 
@@ -77,6 +81,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/cause"
+            android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edt_doctor_hospital" />
 
@@ -101,6 +107,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/doctor_date_begin"
+            android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edt_doctor_cause" />
 
@@ -123,6 +131,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/recipe"
+            android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_doctor_visit" />
 
@@ -147,6 +157,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/result"
+            android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edt_doctor_recipe" />
 
@@ -155,14 +167,50 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:autofillHints="@string/result"
             android:ems="10"
             android:inputType="textMultiLine|textPersonName"
             android:singleLine="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView17"
-            android:autofillHints="@string/result"
             tools:ignore="LabelFor" />
+
+        <TextView
+            android:id="@+id/textView49"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Уведомление"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edt_doctor_result" />
+
+        <TextView
+            android:id="@+id/textView50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="30.05.2020"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:layout_constraintStart_toEndOf="@+id/textView49"
+            app:layout_constraintTop_toBottomOf="@+id/edt_doctor_result" />
+
+        <TextView
+            android:id="@+id/textView53"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="12:00"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:layout_constraintStart_toEndOf="@+id/textView50"
+            app:layout_constraintTop_toBottomOf="@+id/edt_doctor_result" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

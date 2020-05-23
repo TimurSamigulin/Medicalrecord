@@ -24,6 +24,21 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
+        <EditText
+            android:id="@+id/edt_mc_contact"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:inputType="textLongMessage|none|textMultiLine"
+            android:singleLine="false"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView46" />
+
         <ImageView
             android:id="@+id/img_mc_photo"
             android:layout_width="wrap_content"
@@ -41,6 +56,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="Имя"
+            android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/img_mc_photo" />
 
@@ -52,7 +69,8 @@
             android:layout_marginEnd="16dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:textSize="14sp"
+            android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView22" />
@@ -64,6 +82,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="Фамилия"
+            android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edt_mc_name" />
 
@@ -75,6 +95,7 @@
             android:layout_marginEnd="16dp"
             android:ems="10"
             android:inputType="textPersonName"
+            android:textColor="#000000"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -87,6 +108,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="@string/mc_date_birth"
+            android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edt_mc_lastname" />
 
@@ -99,6 +122,7 @@
             android:onClick="setBirthday"
             android:text="@string/text_view"
             android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@+id/textView38"
             app:layout_constraintTop_toBottomOf="@+id/edt_mc_lastname" />
 
@@ -109,8 +133,10 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="@string/hight"
+            android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView38" />
+            app:layout_constraintTop_toBottomOf="@+id/textView40" />
 
         <EditText
             android:id="@+id/edt_mc_hight"
@@ -121,6 +147,7 @@
             android:inputType="number"
             android:numeric="integer"
             android:singleLine="true"
+            android:textColor="#000000"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView41" />
@@ -132,6 +159,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="@string/weight"
+            android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edt_mc_hight" />
 
@@ -143,6 +172,7 @@
             android:ems="10"
             android:inputType="number"
             android:singleLine="true"
+            android:textColor="#000000"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView43" />
@@ -154,6 +184,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="@string/blood"
+            android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edt_mc_weight" />
 
@@ -165,6 +197,7 @@
             android:ems="10"
             android:inputType="number"
             android:singleLine="true"
+            android:textColor="#000000"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView45" />
@@ -176,6 +209,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="@string/allergies"
+            android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edt_mc_blood" />
 
@@ -188,57 +223,11 @@
             android:ems="10"
             android:inputType="textLongMessage|none|textMultiLine"
             android:singleLine="false"
+            android:textColor="#000000"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView47" />
-
-        <TextView
-            android:id="@+id/textView49"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/important_disease"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_mc_allergies" />
-
-        <EditText
-            android:id="@+id/edt_mc_disease"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:singleLine="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView49" />
-
-        <TextView
-            android:id="@+id/textView50"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/important_medicine"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_mc_disease" />
-
-        <EditText
-            android:id="@+id/edt_mc_medicine"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:ems="10"
-            android:inputType="textLongMessage|none|textMultiLine"
-            android:singleLine="false"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView50" />
 
         <TextView
             android:id="@+id/textView51"
@@ -247,8 +236,10 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="@string/donor"
+            android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_mc_medicine" />
+            app:layout_constraintTop_toBottomOf="@+id/edt_mc_allergies" />
 
         <EditText
             android:id="@+id/edt_mc_donor"
@@ -263,6 +254,60 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView51" />
+
+        <TextView
+            android:id="@+id/textView27"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Пол"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView38" />
+
+        <Spinner
+            android:id="@+id/edt_mc_sex"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toEndOf="@+id/textView27"
+            app:layout_constraintTop_toBottomOf="@+id/textView38" />
+
+        <TextView
+            android:id="@+id/textView40"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Город"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView27" />
+
+        <Spinner
+            android:id="@+id/edt_mc_city"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toEndOf="@+id/textView40"
+            app:layout_constraintTop_toBottomOf="@+id/edt_mc_sex" />
+
+        <TextView
+            android:id="@+id/textView46"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Экстренный контакт"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edt_mc_donor" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

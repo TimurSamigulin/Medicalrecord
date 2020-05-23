@@ -17,10 +17,10 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:orientation="vertical"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
         <ImageView
@@ -29,10 +29,11 @@
             android:layout_height="130dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:contentDescription="@string/avatar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/avatars"
-            android:contentDescription="@string/avatar" />
+            tools:src="@tools:sample/avatars" />
 
         <TextView
             android:id="@+id/txt_mc_name"
@@ -42,7 +43,7 @@
             android:layout_marginTop="16dp"
             android:text="@string/pass"
             android:textColor="#000000"
-            android:textSize="18sp"
+            android:textSize="24sp"
             android:textStyle="normal"
             app:layout_constraintStart_toEndOf="@+id/img_mc_photo"
             app:layout_constraintTop_toTopOf="parent" />
@@ -55,7 +56,7 @@
             android:layout_marginTop="16dp"
             android:text="@string/pass"
             android:textColor="#000000"
-            android:textSize="18sp"
+            android:textSize="24sp"
             app:layout_constraintStart_toEndOf="@+id/txt_mc_name"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -67,6 +68,7 @@
             android:layout_marginTop="8dp"
             android:text="@string/mc_date_birth"
             android:textColor="@android:color/secondary_text_light"
+            android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@+id/img_mc_photo"
             app:layout_constraintTop_toBottomOf="@+id/txt_mc_name" />
 
@@ -74,9 +76,11 @@
             android:id="@+id/txt_mc_birthday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/pass"
             android:textColor="@android:color/primary_text_light_nodisable"
+            android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@+id/textView31"
             app:layout_constraintTop_toBottomOf="@+id/txt_mc_name" />
 
@@ -84,19 +88,22 @@
             android:id="@+id/textView34"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="@string/hight"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textView"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textView33"
             app:layout_constraintTop_toBottomOf="@+id/img_mc_photo" />
 
         <TextView
             android:id="@+id/txt_mc_hight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:text="@string/pass"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView34"
+            app:layout_constraintStart_toStartOf="@+id/textView34"
             app:layout_constraintTop_toBottomOf="@+id/textView34" />
 
         <TextView
@@ -106,6 +113,7 @@
             android:layout_marginTop="8dp"
             android:text="@string/weight"
             app:layout_constraintEnd_toStartOf="@+id/textView39"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/textView34"
             app:layout_constraintTop_toBottomOf="@+id/img_mc_photo" />
 
@@ -124,17 +132,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/pass"
-            app:layout_constraintEnd_toStartOf="@+id/textView39"
-            app:layout_constraintStart_toEndOf="@+id/textView34"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <TextView
             android:id="@+id/txt_mc_blood"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="64dp"
             android:text="@string/pass"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView39"
+            app:layout_constraintStart_toStartOf="@+id/textView39"
             app:layout_constraintTop_toBottomOf="@+id/textView39" />
 
         <TextView
@@ -142,10 +154,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:text="@string/allergies"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_mc_hight" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_mc_city" />
 
         <TextView
             android:id="@+id/txt_mc_allergies"
@@ -153,56 +165,20 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="@string/pass"
+            android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView42" />
-
-        <TextView
-            android:id="@+id/textView44"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:text="@string/important_disease"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_mc_allergies" />
-
-        <TextView
-            android:id="@+id/txt_mc_important_disease"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="@string/pass"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView44" />
-
-        <TextView
-            android:id="@+id/textView46"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:text="@string/important_medicine"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_mc_important_disease" />
-
-        <TextView
-            android:id="@+id/txt_mc_important_medicine"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="@string/pass"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView46" />
 
         <TextView
             android:id="@+id/textView48"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:text="@string/donor"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_mc_important_medicine" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_mc_allergies" />
 
         <TextView
             android:id="@+id/txt_mc_donor"
@@ -210,8 +186,73 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="@string/pass"
+            android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView48" />
+
+        <TextView
+            android:id="@+id/textView33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Пол"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_mc_photo" />
+
+        <TextView
+            android:id="@+id/txt_mc_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pass"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView33"
+            app:layout_constraintStart_toStartOf="@+id/textView33"
+            app:layout_constraintTop_toBottomOf="@+id/textView33" />
+
+        <TextView
+            android:id="@+id/textView44"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:text="Город"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_mc_sex" />
+
+        <TextView
+            android:id="@+id/txt_mc_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/pass"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView44" />
+
+        <TextView
+            android:id="@+id/textView52"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Экстренный контакт"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_mc_donor" />
+
+        <TextView
+            android:id="@+id/txt_mc_contact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/pass"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView52" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -30,6 +30,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/medicine"
+            android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -53,6 +55,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/dose"
+            android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_medicine_begin_day" />
 
@@ -84,6 +88,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/days"
+            android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edt_medicine_dose" />
 
@@ -106,6 +112,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/date_begin_medicine"
+            android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edt_medicine_title" />
 
@@ -128,6 +136,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/dop_info"
+            android:textColor="#000000"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edt_medicine_day" />
 

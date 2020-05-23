@@ -59,6 +59,10 @@ class DiseaseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
                 val intent = Intent(this, DoctorActivity::class.java)
                 startActivity(intent)
             }
+            R.id.nav_menu_analysis -> {
+                val intent = Intent(this, AnalysisActivity::class.java)
+                startActivity(intent)
+            }
             R.id.nav_menu_drug -> {
                 val intent = Intent(this, DrugActivity::class.java)
                 startActivity(intent)

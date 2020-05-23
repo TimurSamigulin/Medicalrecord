@@ -50,4 +50,6 @@
     <string name="donor">Донор органов</string>
     <string name="title_activity_maps">Map</string>
     <string name="map">Карта</string>
+    <string name="analiz">Анализы</string>
+    <string name="email">email</string>
 </resources>

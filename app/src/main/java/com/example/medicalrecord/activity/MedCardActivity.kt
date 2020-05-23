@@ -35,8 +35,9 @@ class MedCardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
     private lateinit var weight: String
     private lateinit var blood: String
     private lateinit var allergy: String
-    private lateinit var disease: String
-    private lateinit var medicine: String
+    private lateinit var sex: String
+    private lateinit var city: String
+    private lateinit var contact: String
     private lateinit var donor: String
     private var birthday: Calendar = Calendar.getInstance()
 
@@ -45,7 +46,7 @@ class MedCardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_med_card)
         setSupportActionBar(toolbar)
-        title = "Медицинская карточка"
+        title = "Медицинская карта"
 
         val toggle = ActionBarDrawerToggle(this, med_card_drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         med_card_drawer_layout.addDrawerListener(toggle)
@@ -67,8 +68,9 @@ class MedCardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
             weight = medCard.weight.toString()
             blood = medCard.blood.toString()
             allergy = medCard.allergies
-            disease = medCard.importDisease
-            medicine = medCard.importMedicine
+            sex = medCard.sex
+            city = medCard.city
+            contact = medCard.contact
             donor = medCard.donor
             birthday.timeInMillis = medCard.bithDate
             assignText()
@@ -82,8 +84,9 @@ class MedCardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         val txtWeight: TextView = findViewById(R.id.txt_mc_weight)
         val txtBlood: TextView = findViewById(R.id.txt_mc_blood)
         val txtAllergy: TextView = findViewById(R.id.txt_mc_allergies)
-        val txtDisease: TextView = findViewById(R.id.txt_mc_important_disease)
-        val txtMedicine: TextView = findViewById(R.id.txt_mc_important_medicine)
+        val txtSex: TextView = findViewById(R.id.txt_mc_sex)
+        val txtCity: TextView = findViewById(R.id.txt_mc_city)
+        val txtContact: TextView = findViewById(R.id.txt_mc_contact)
         val txtDonor: TextView = findViewById(R.id.txt_mc_donor)
         val txtBirthday: TextView = findViewById(R.id.txt_mc_birthday)
 
@@ -95,8 +98,9 @@ class MedCardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         txtWeight.text = weight
         txtBlood.text = blood
         txtAllergy.text = allergy
-        txtDisease.text = disease
-        txtMedicine.text = medicine
+        txtSex.text = sex
+        txtCity.text = city
+        txtContact.text = contact
         txtDonor.text = donor
         txtBirthday.text = formatter.format(birthday.time).toString()
 
@@ -126,7 +130,7 @@ class MedCardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.edit_menu, menu)
+        menuInflater.inflate(R.menu.mad_card_menu, menu)
         return true
     }
 
@@ -140,8 +144,9 @@ class MedCardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
                 intent.putExtra(AddMedCardActivity.EXTRA_WEIGHT, weight)
                 intent.putExtra(AddMedCardActivity.EXTRA_BLOOD, blood)
                 intent.putExtra(AddMedCardActivity.EXTRA_ALLERGY, allergy)
-                intent.putExtra(AddMedCardActivity.EXTRA_DISEASE, disease)
-                intent.putExtra(AddMedCardActivity.EXTRA_MEDICINE, medicine)
+                intent.putExtra(AddMedCardActivity.EXTRA_SEX, sex)
+                intent.putExtra(AddMedCardActivity.EXTRA_CONTACT, contact)
+                intent.putExtra(AddMedCardActivity.EXTRA_CITY, city)
                 intent.putExtra(AddMedCardActivity.EXTRA_DONOR, donor)
                 intent.putExtra(AddMedCardActivity.EXTRA_BIRTHDAY, birthday.timeInMillis)
 
@@ -161,8 +166,9 @@ class MedCardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
             val weight = data?.getIntExtra(AddMedCardActivity.EXTRA_WEIGHT, 0) ?: 0
             val blood = data?.getIntExtra(AddMedCardActivity.EXTRA_BLOOD, 0) ?: 0
             val allergy = data?.getStringExtra(AddMedCardActivity.EXTRA_ALLERGY) ?: ""
-            val disease = data?.getStringExtra(AddMedCardActivity.EXTRA_DISEASE) ?: ""
-            val medicine = data?.getStringExtra(AddMedCardActivity.EXTRA_MEDICINE) ?: ""
+            val sex = data?.getStringExtra(AddMedCardActivity.EXTRA_SEX) ?: "Муж."
+            val city = data?.getStringExtra(AddMedCardActivity.EXTRA_CITY) ?: "Томск"
+            val contact = data?.getStringExtra(AddMedCardActivity.EXTRA_CONTACT) ?: ""
             val donor = data?.getStringExtra(AddMedCardActivity.EXTRA_DONOR) ?: ""
             val birthday = data?.getLongExtra(AddMedCardActivity.EXTRA_BIRTHDAY, Calendar.getInstance().timeInMillis) ?: Calendar.getInstance().timeInMillis
 
@@ -173,7 +179,7 @@ class MedCardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
                 editor.apply()
             }
 
-            val medCard = MedCard(null, name, lastname, birthday, hight, weight, blood, allergy, disease, medicine, donor, "")
+            val medCard = MedCard(null, name, lastname, birthday, hight, weight, blood, allergy, sex, city, contact, donor, "")
             model.insertMedCard(medCard)
         }
     }

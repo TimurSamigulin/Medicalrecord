@@ -11,6 +11,9 @@
         android:id="@+id/nav_menu_doctor"
         android:title="@string/doctor"/>
     <item
+        android:id="@+id/nav_menu_analysis"
+        android:title="@string/analiz"/>
+    <item
         android:id="@+id/nav_menu_drug"
         android:title="@string/drug"/>
     <item

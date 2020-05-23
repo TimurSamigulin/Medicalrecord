@@ -16,13 +16,12 @@ class MedCard constructor(@PrimaryKey(autoGenerate = true) var id: Long?,
                           val weight: Int,
                           val blood: Int,
                           val allergies: String,
-                          @ColumnInfo(name = "import_disease")
-                          val importDisease: String,
-                          @ColumnInfo(name = "import_medicine")
-                          val importMedicine: String,
+                          val sex: String,
+                          val city: String,
+                          val contact: String,
                           val donor: String,
                           val photo_uri: String
 )
 {
-    constructor():this(null, "...", "...", 0, 0, 0, 0, "...", "...", "...", "...", "")
+    constructor():this(null, "Иван", "Иванов", 0, 0, 0, 0, "...", "Муж.", "Томск", "+79528892207", "Нет", "")
 }

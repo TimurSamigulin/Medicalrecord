@@ -8,16 +8,14 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.example.medicalrecord.R
 import com.example.medicalrecord.room.model.MedCard
 import kotlinx.android.synthetic.main.toolbar.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class AddMedCardActivity : AppCompatActivity() {
+class AddMedCardActivity : AppCompatActivity(),AdapterView.OnItemSelectedListener {
 
     companion object {
         @JvmStatic
@@ -35,9 +33,11 @@ class AddMedCardActivity : AppCompatActivity() {
         @JvmStatic
         val EXTRA_ALLERGY = "addmedcardactivity.ALLERGY"
         @JvmStatic
-        val EXTRA_DISEASE = "addmedcardactivity.DISEASE"
+        val EXTRA_SEX = "addmedcardactivity.SEX"
         @JvmStatic
-        val EXTRA_MEDICINE = "addmedcardactivity.MEDICINE"
+        val EXTRA_CITY = "addmedcardactivity.CITY"
+        @JvmStatic
+        val EXTRA_CONTACT = "addmedcardactivity.CONTACT"
         @JvmStatic
         val EXTRA_DONOR = "addmedcardactivity.DONOR"
         @JvmStatic
@@ -50,10 +50,12 @@ class AddMedCardActivity : AppCompatActivity() {
     private lateinit var editWeight: EditText
     private lateinit var editBlood: EditText
     private lateinit var editAllergy: EditText
-    private lateinit var editImpDisease: EditText
-    private lateinit var editImpMedicine: EditText
+    private lateinit var editContact: EditText
     private lateinit var editDonor: EditText
     private lateinit var txtBirthday: TextView
+
+    private var sex: String = "Муж."
+    private var city: String = "Томск"
 
     private var birthday: Calendar = Calendar.getInstance()
 
@@ -71,10 +73,11 @@ class AddMedCardActivity : AppCompatActivity() {
         editWeight = findViewById(R.id.edt_mc_weight)
         editBlood = findViewById(R.id.edt_mc_blood)
         editAllergy = findViewById(R.id.edt_mc_allergies)
-        editImpDisease = findViewById(R.id.edt_mc_disease)
-        editImpMedicine = findViewById(R.id.edt_mc_medicine)
+        editContact = findViewById(R.id.edt_mc_contact)
         editDonor = findViewById(R.id.edt_mc_donor)
         txtBirthday = findViewById(R.id.txt_mc_birthday)
+
+        getSpinner()
 
         val intent: Intent = intent
         editName.setText(intent.getStringExtra(EXTRA_NAME) ?: "")
@@ -83,8 +86,7 @@ class AddMedCardActivity : AppCompatActivity() {
         editWeight.setText(intent.getStringExtra(EXTRA_WEIGHT) ?: "")
         editBlood.setText(intent.getStringExtra(EXTRA_BLOOD) ?: "")
         editAllergy.setText(intent.getStringExtra(EXTRA_ALLERGY) ?: "")
-        editImpDisease.setText(intent.getStringExtra(EXTRA_DISEASE) ?: "")
-        editImpMedicine.setText(intent.getStringExtra(EXTRA_MEDICINE) ?: "")
+        editContact.setText(intent.getStringExtra(EXTRA_CONTACT) ?: "")
         editDonor.setText(intent.getStringExtra(EXTRA_DONOR) ?: "")
         birthday.timeInMillis = intent.getLongExtra(EXTRA_BIRTHDAY, Calendar.getInstance().timeInMillis)
 
@@ -98,9 +100,8 @@ class AddMedCardActivity : AppCompatActivity() {
         val weightText = editWeight.text.toString()
         val bloodText = editBlood.text.toString()
         val allergy = editAllergy.text.toString()
-        val disease = editImpDisease.text.toString()
-        val medicine = editImpMedicine.text.toString()
         val donor = editDonor.text.toString()
+        val contact = editContact.text.toString()
         val hight: Int
         val weight: Int
         val blood: Int
@@ -142,8 +143,9 @@ class AddMedCardActivity : AppCompatActivity() {
         data.putExtra(EXTRA_WEIGHT, weight)
         data.putExtra(EXTRA_BLOOD, blood)
         data.putExtra(EXTRA_ALLERGY, allergy)
-        data.putExtra(EXTRA_DISEASE, disease)
-        data.putExtra(EXTRA_MEDICINE, medicine)
+        data.putExtra(EXTRA_SEX, sex)
+        data.putExtra(EXTRA_CITY, city)
+        data.putExtra(EXTRA_CONTACT, contact)
         data.putExtra(EXTRA_DONOR, donor)
         data.putExtra(EXTRA_BIRTHDAY, birthday.timeInMillis)
 
@@ -181,5 +183,37 @@ class AddMedCardActivity : AppCompatActivity() {
 
         val simpleDateFormat = SimpleDateFormat("dd.MM.yyyy", Locale.US)
         txtBirthday.text = simpleDateFormat.format(birthday.time).toString()
+    }
+
+    private fun getSpinner() {
+        val sex = arrayListOf<String>("Муж.", "Жен.")
+        val city = arrayListOf<String>("Томск")
+        val spinnerSex = findViewById<Spinner>(R.id.edt_mc_sex)
+        val spinnerCity = findViewById<Spinner>(R.id.edt_mc_city)
+        val adapter: ArrayAdapter<String> = ArrayAdapter(this, android.R.layout.simple_spinner_item, sex)
+        val adapterCity: ArrayAdapter<String> = ArrayAdapter(this, android.R.layout.simple_spinner_item, city)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        adapterCity.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinnerSex.adapter = adapter
+        spinnerSex.onItemSelectedListener = this
+        spinnerCity.adapter = adapterCity
+        spinnerCity.onItemSelectedListener = this
+    }
+
+    override fun onNothingSelected(parent: AdapterView<*>?) {
+
+    }
+
+    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        when(parent?.id) {
+            R.id.edt_mc_sex -> {
+                val item: String = parent.getItemAtPosition(position).toString()
+                sex = item
+            }
+            R.id.edt_mc_city -> {
+                val item: String = parent.getItemAtPosition(position).toString()
+                city = item
+            }
+        }
     }
 }
