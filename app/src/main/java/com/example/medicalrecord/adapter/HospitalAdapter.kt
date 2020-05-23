@@ -20,7 +20,7 @@ class HospitalAdapter(val listener: OnHospitalBtnClickListener): RecyclerView.Ad
             textNumber = itemView.findViewById(R.id.hospital_phone)
         }
         fun bindView(hospital: Hospital, listener: OnHospitalBtnClickListener) {
-            // itemView.setOnClickListener{(listener.onDiseaseViewClickListener(disease))}
+            itemView.setOnClickListener{(listener.onHospitalViewClickListener(hospital))}
         }
     }
 
