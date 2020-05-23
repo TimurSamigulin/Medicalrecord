@@ -32,8 +32,8 @@
             android:contentDescription="@string/avatar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars"
-            tools:src="@tools:sample/avatars" />
+            android:src="@drawable/avatar_5"
+            tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
             android:id="@+id/txt_mc_name"
@@ -90,6 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/hight"
+            android:textSize="18sp"
             app:layout_constraintEnd_toStartOf="@+id/textView"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/textView33"
@@ -112,6 +113,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/weight"
+            android:textSize="18sp"
             app:layout_constraintEnd_toStartOf="@+id/textView39"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/textView34"
@@ -124,6 +126,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:text="@string/blood"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/img_mc_photo" />
 
@@ -156,6 +159,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/allergies"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_mc_city" />
 
@@ -177,6 +181,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/donor"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_mc_allergies" />
 
@@ -198,6 +203,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="Пол"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/img_mc_photo" />
 
@@ -205,6 +211,7 @@
             android:id="@+id/txt_mc_sex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:text="@string/pass"
             android:textColor="#000000"
             android:textSize="18sp"
@@ -219,6 +226,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
             android:text="Город"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_mc_sex" />
 
@@ -240,6 +248,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="Экстренный контакт"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_mc_donor" />
 
