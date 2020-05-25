@@ -52,4 +52,6 @@
     <string name="map">Карта</string>
     <string name="analiz">Анализы</string>
     <string name="email">email</string>
+    <string name="hospitals">Больницы</string>
+    <string name="exit">Выход</string>
 </resources>

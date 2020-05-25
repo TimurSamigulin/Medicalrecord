@@ -3,21 +3,31 @@
 <group android:checkableBehavior="single">
     <item
         android:id="@+id/nav_menu_med_card"
+        android:icon="@mipmap/medcard"
         android:title="@string/med_card"/>
     <item
         android:id="@+id/nav_menu_disease"
+        android:icon="@mipmap/disease"
         android:title="@string/disease"/>
     <item
         android:id="@+id/nav_menu_doctor"
+        android:icon="@mipmap/doctor"
         android:title="@string/doctor"/>
     <item
         android:id="@+id/nav_menu_analysis"
+        android:icon="@mipmap/analisis"
         android:title="@string/analiz"/>
     <item
         android:id="@+id/nav_menu_drug"
+        android:icon="@mipmap/medicine"
         android:title="@string/drug"/>
     <item
         android:id="@+id/nav_menu_hospital"
-        android:title="@string/hospital"/>
+        android:icon="@mipmap/hospital"
+        android:title="@string/hospitals"/>
+    <item
+        android:id="@+id/nav_menu_exit"
+        android:icon="@drawable/ic_exit_to_app_black_24dp"
+        android:title="@string/exit"/>
 </group>
 </menu>
